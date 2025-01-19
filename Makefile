@@ -1,5 +1,6 @@
 # Variables
 DOCKER_COMPOSE = docker-compose
+SQLC_LOCATION = internals/db/sqlc.yaml
 
 # Load Variables from .env
 ifneq (,$(wildcard .env))
@@ -21,6 +22,10 @@ database-create:
 database-delete:
 	@docker exec -it $(POSTGRES_CONTAINER_NAME) dropdb --username=$(DB_USER) --owner=admin $(DB_NAME)
  
+
+#SQLC
+sqlc:
+	sqlc generate
 
 # Docker
 docker-up:
