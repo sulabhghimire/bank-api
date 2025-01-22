@@ -44,6 +44,9 @@ docker-logs:
 docker-ps:
 	@$(DOCKER_COMPOSE) ps
 
+# GO
+test:
+	go test -v -cover ./...
 
 # Help
 help:
