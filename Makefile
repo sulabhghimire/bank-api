@@ -1,5 +1,5 @@
 # Variables
-DOCKER_COMPOSE = docker-compose
+DOCKER_COMPOSE = docker compose
 SQLC_LOCATION = internals/db/sqlc.yaml
 
 # Load Variables from .env
@@ -51,8 +51,8 @@ test:
 # Help
 help:
 	@echo "Available commands:"
-	@echo "  make up       - Start the services in detached mode"
-	@echo "  make down     - Stop the services and remove containers"
-	@echo "  make restart  - Restart the services"
-	@echo "  make logs     - View logs for the services"
-	@echo "  make ps       - List running services"
+	@echo "  make docker-up       - Start the services in detached mode"
+	@echo "  make docker-down     - Stop the services and remove containers"
+	@echo "  make docker-restart  - Restart the services"
+	@echo "  make docker-logs     - View logs for the services"
+	@echo "  make docker-ps       - List running services"
