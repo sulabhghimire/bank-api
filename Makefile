@@ -48,6 +48,9 @@ docker-ps:
 test:
 	go test -v -cover ./...
 
+server:
+	go run ./cmd/bank-api/main.go
+
 # Help
 help:
 	@echo "Available commands"
@@ -69,4 +72,8 @@ help:
 	@echo "Goose commands"
 	@echo "  make migrate-up	  - Makes one up migration to the database"
 	@echo "  make migrate-down	  - Makes one down migration to the database"
+	@echo "************************************************************************"
+	@echo "GO commands"
+	@echo "  make test			  - Run all the tests for all packages"
+	@echo "  make server		  - Run GO HTTP Server"
 	@echo "************************************************************************"

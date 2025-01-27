@@ -9,26 +9,26 @@ import (
 )
 
 type Account struct {
-	ID        int64     `db:"id"`
-	Owner     string    `db:"owner"`
-	Balance   int64     `db:"balance"`
-	Currency  string    `db:"currency"`
-	CreatedAt time.Time `db:"created_at"`
+	ID        int64     `db:"id" json:"id"`
+	Owner     string    `db:"owner" json:"owner"`
+	Balance   int64     `db:"balance" json:"balance"`
+	Currency  string    `db:"currency" json:"currency"`
+	CreatedAt time.Time `db:"created_at" json:"created_at"`
 }
 
 type Entry struct {
-	ID        int64 `db:"id"`
-	AccountID int64 `db:"account_id"`
+	ID        int64 `db:"id" json:"id"`
+	AccountID int64 `db:"account_id" json:"account_id"`
 	// can be negative or positive
-	Amount    int64     `db:"amount"`
-	CreatedAt time.Time `db:"created_at"`
+	Amount    int64     `db:"amount" json:"amount"`
+	CreatedAt time.Time `db:"created_at" json:"created_at"`
 }
 
 type Transfer struct {
-	ID            int64 `db:"id"`
-	FromAccountID int64 `db:"from_account_id"`
-	ToAccountID   int64 `db:"to_account_id"`
+	ID            int64 `db:"id" json:"id"`
+	FromAccountID int64 `db:"from_account_id" json:"from_account_id"`
+	ToAccountID   int64 `db:"to_account_id" json:"to_account_id"`
 	// can only be positive
-	Amount    int64     `db:"amount"`
-	CreatedAt time.Time `db:"created_at"`
+	Amount    int64     `db:"amount" json:"amount"`
+	CreatedAt time.Time `db:"created_at" json:"created_at"`
 }
