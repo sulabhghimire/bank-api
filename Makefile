@@ -4,8 +4,8 @@ SQLC_LOCATION = internals/db/sqlc.yaml
 
 # Load Variables from .env
 ifneq (,$(wildcard app.env))
-    include .env
-    export $(shell sed 's/=.*//' .env)
+    include app.env
+    export $(shell sed 's/=.*//' app.env)
 endif
 
 #Goose

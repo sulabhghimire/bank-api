@@ -11,14 +11,14 @@ import (
 )
 
 func main() {
-	cfg, err := config.LoadConfig("./../../")
+	cfg, err := config.LoadConfig(".")
 	if err != nil {
-		log.Fatal("Can't load config variables")
+		log.Fatal(err)
 	}
 
 	conn, err := sql.Open(cfg.DB_DRIVER, cfg.DB_SOURCE)
 	if err != nil {
-		log.Fatal("Failed to connection to DB")
+		log.Fatal(err)
 	}
 	log.Println("Database connection successful")
 
