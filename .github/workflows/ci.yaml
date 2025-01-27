@@ -20,7 +20,7 @@ jobs:
         env:
           POSTGRES_USER: admin
           POSTGRES_PASSWORD: admin
-          POSTGRES_DB: simple_bank
+          POSTGRES_DB: test_db
         ports:
           - 5432:5432
         options: >-
@@ -45,7 +45,7 @@ jobs:
       - name: Run Migrations
         env:
           GOOSE_DRIVER: postgres
-          GOOSE_DBSTRING: postgresql://admin:admin@localhost:5432/simple_bank
+          GOOSE_DBSTRING: postgresql://admin:admin@localhost:5432/test_db
           GOOSE_MIGRATION_DIR: ./internals/db/migrations
         run: make migrate-up
 
