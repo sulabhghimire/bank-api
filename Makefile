@@ -3,7 +3,7 @@ DOCKER_COMPOSE = docker compose
 SQLC_LOCATION = internals/db/sqlc.yaml
 
 # Load Variables from .env
-ifneq (,$(wildcard .env))
+ifneq (,$(wildcard app.env))
     include .env
     export $(shell sed 's/=.*//' .env)
 endif
