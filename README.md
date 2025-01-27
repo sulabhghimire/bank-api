@@ -9,6 +9,7 @@ Bank API is a Go-based web API designed to simulate a simple banking system. It 
 - **Database Migrations**: Managed using [Goose](https://github.com/pressly/goose) for version control and schema updates.
 - **Web Framework**: Uses [Fiber](https://github.com/gofiber/fiber) for high-performance API development.
 - **SQL Query Generation**: Leverages [SQLC](https://sqlc.dev/) to generate type-safe database queries from SQL files.
+- **GO Mock**: Leverages [GO MOCK](https://github.com/golang/mock) to mock database.
 - **Makefile Support**: Automates tasks like migrations, building, and running the application.
 
 ---
@@ -22,6 +23,7 @@ Ensure you have the following installed:
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Goose](https://github.com/pressly/goose) (`go install github.com/pressly/goose/v3/cmd/goose@latest`)
 - [SQLC](https://sqlc.dev/) (`go install github.com/kyleconroy/sqlc/cmd/sqlc@latest`)
+- [GO MOCK](https://github.com/golang/mock) (`go install github.com/golang/mock/mockgen@v1.6.0`)
 
 ---
 

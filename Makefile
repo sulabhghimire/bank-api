@@ -51,6 +51,10 @@ test:
 server:
 	go run ./cmd/bank-api/main.go
 
+# MOCK GEN
+mock:
+	@mockgen --package mockdb --build_flags=--mod=mod --destination internals/db/mock/store.go github.com/sulabhghimire/bank-api/internals/db/sqlc Store 
+
 # Help
 help:
 	@echo "Available commands"
