@@ -14,12 +14,7 @@ var testQueries *Queries
 var testDB *sql.DB
 
 func TestMain(m *testing.M) {
-	cfg, err := config.LoadConfig("../../../")
-	if err != nil {
-		log.Println("Config file not found, falling back to environment variables")
-		cfg.DB_DRIVER = os.Getenv("DB_DRIVER")
-		cfg.DB_SOURCE = os.Getenv("DB_SOURCE")
-	}
+	cfg, err := config.LoadTestConfig()
 	if err != nil {
 		log.Fatal("Can't load config", err)
 	}

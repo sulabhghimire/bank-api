@@ -49,8 +49,7 @@ test:
 	go test -v -cover ./...
 
 test-ci-cd:
-	@echo "Running tests with DB_DRIVER=${DB_DRIVER} and DB_SOURCE=${DB_SOURCE}"
-	DB_DRIVER=${DB_DRIVER} DB_SOURCE=${DB_SOURCE} go test -v -cover ./...
+	DB_DRIVER=postgres DB_SOURCE=postgresql://admin:admin@localhost:5432/simple_bank?sslmode=disable go test -v -cover ./...
 
 server:
 	go run ./cmd/bank-api/main.go
