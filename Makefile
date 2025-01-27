@@ -46,10 +46,9 @@ docker-ps:
 
 # GO
 test:
-	go test -v -cover ./...
-
-test-ci-cd:
-	DB_DRIVER=postgres DB_SOURCE=postgresql://admin:admin@localhost:5432/test_db?sslmode=disable go test -v -cover ./...
+	@export DB_DRIVER=postgres
+	@export DB_SOURCE=postgresql://admin:admin@localhost:5433/test_db?sslmode=disable
+	@go test -v -cover ./...
 
 server:
 	go run ./cmd/bank-api/main.go

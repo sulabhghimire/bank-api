@@ -1,6 +1,8 @@
 package config
 
-import "github.com/spf13/viper"
+import (
+	"os"
+)
 
 type TestConfig struct {
 	DB_DRIVER string `map_structure:"DB_DRIVER"`
@@ -9,13 +11,8 @@ type TestConfig struct {
 
 func LoadTestConfig() (config Config, err error) {
 
-	viper.AutomaticEnv()
+	config.DB_DRIVER = os.Getenv("DB_DRIVER")
+	config.DB_SOURCE = os.Getenv("DB_SOURCE")
 
-	err = viper.ReadInConfig()
-	if err != nil {
-		return
-	}
-
-	err = viper.Unmarshal(&config)
 	return
 }
