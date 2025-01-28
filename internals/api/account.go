@@ -9,13 +9,13 @@ import (
 	"github.com/sulabhghimire/bank-api/internals/util"
 )
 
-type CreateAccountRequest struct {
+type createAccountRequest struct {
 	Owner    string `db:"owner" binding:"required"`
-	Currency string `db:"currency" binding:"required,oneof=USD EUR"`
+	Currency string `db:"currency" binding:"required,currency"`
 }
 
 func (server *Server) createAccount(ctx *gin.Context) {
-	var body CreateAccountRequest
+	var body createAccountRequest
 	if err := ctx.ShouldBind(&body); err != nil {
 		ctx.JSON(http.StatusBadRequest, util.ErrorResponse(err))
 		return
@@ -30,6 +30,7 @@ func (server *Server) createAccount(ctx *gin.Context) {
 	account, err := server.store.CreateAccount(ctx, arg)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, util.ErrorResponse(err))
+		return
 	}
 
 	msg := "Account Created Successfully"
