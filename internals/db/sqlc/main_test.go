@@ -2,6 +2,7 @@ package db
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"os"
 	"testing"
@@ -15,6 +16,7 @@ var testDB *sql.DB
 
 func TestMain(m *testing.M) {
 	cfg, err := config.LoadTestConfig()
+	fmt.Printf("%v", cfg)
 	if err != nil {
 		log.Fatal("Can't load config", err)
 	}
