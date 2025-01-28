@@ -46,6 +46,15 @@ docker-ps:
 
 # GO
 test:
+	@echo "Running migrations..."
+	@env GOOSE_DRIVER=postgres GOOSE_DBSTRING=postgresql://admin:admin@localhost:5433/test_db GOOSE_MIGRATION_DIR=./internals/db/migrations goose up
+	@echo "Migrations completed."
+
+	@echo "Running tests..."
+	@env DB_DRIVER=postgres DB_SOURCE=postgresql://admin:admin@localhost:5433/test_db?sslmode=disable go test -v -cover ./...
+	@echo "Tests completed."
+
+test-ci-cd:
 	@env DB_DRIVER=postgres DB_SOURCE=postgresql://admin:admin@localhost:5433/test_db?sslmode=disable \
 	go test -v -cover ./...
 
