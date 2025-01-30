@@ -9,18 +9,24 @@ ifneq (,$(wildcard app.env))
 endif
 
 #Goose
-migrate-up:
+migrate-up-all:
 	goose up
 
-migrate-down:
+migrate-up-one:
+	goose up-by-one
+
+migrate-down-one:
 	goose down
+
+migrate-down-all:
+	goose down-to 0
 
 #Database
 database-create:
 	@docker exec -it $(POSTGRES_CONTAINER_NAME) createdb --username=$(DB_USER) --owner=admin $(DB_NAME)
 
 database-delete:
-	@docker exec -it $(POSTGRES_CONTAINER_NAME) dropdb --username=$(DB_USER) --owner=admin $(DB_NAME)
+	@docker exec -it $(POSTGRES_CONTAINER_NAME) dropdb --username=$(DB_USER) $(DB_NAME)
  
 
 #SQLC
